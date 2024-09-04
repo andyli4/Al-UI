@@ -1,0 +1,132 @@
+//a series of style variables are defined for this style class.
+.al-button {
+    --al-button-font-weight: var(--al-font-weight-primary);
+    --al-button-border-color: var(--al-border-color);
+    --al-button-bg-color: var(--al-fill-color-blank);
+    --al-button-text-color: var(--al-text-color-regular);
+    --al-button-disabled-text-color: var(--al-disabled-text-color);
+    --al-button-disabled-bg-color: var(--al-fill-color-blank);
+    --al-button-disabled-border-color: var(--al-border-color-light);
+    --al-button-hover-text-color: var(--al-color-primary);
+    --al-button-hover-bg-color: var(--al-color-primary-light-9);
+    --al-button-hover-border-color: var(--al-color-primary-light-7);
+    --al-button-active-text-color: var(--al-button-hover-text-color);
+    --al-button-active-border-color: var(--al-color-primary);
+    --al-button-active-bg-color: var(--al-button-hover-bg-color);
+    --al-button-outline-color: var(--al-color-primary-light-5);
+    --al-button-active-color: var(--al-text-color-primary);
+  }
+  
+  .al-button {
+    
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    height: 40px;
+    background-color: var(--al-button-bg-color);
+    border: var(--al-border);
+    border-color: var(--al-button-border-color);
+    color: var(--al-button-text-color);
+    appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: 0.1s;
+    font-weight: var(--al-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    padding: 12px 20px;
+    font-size: var(--al-font-size-base);
+    border-radius: var(--al-border-radius-base);
+    &:hover,
+    &:focus {
+      color: var(--al-button-hover-text-color);
+      border-color: var(--al-button-hover-border-color);
+      background-color: var(--al-button-hover-bg-color);
+      outline: none;
+    }
+    &:active {
+      color: var(--al-button-active-text-color);
+      border-color: var(--al-button-active-border-color);
+      background-color: var(--al-button-active-bg-color);
+      outline: none;
+    }
+    &.is-round {
+      border-radius: var(--al-border-radius-round);
+    }
+    &.is-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    // Disable related styles
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus,
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+      color: var(--al-button-disabled-text-color);
+      cursor: not-allowed;
+      background-image: none;
+      background-color: var(--al-button-disabled-bg-color);
+      border-color: var(--al-button-disabled-border-color);
+    }
+    [class*='al-icon'] + span {
+      margin-left: 6px;
+      position: relative;
+      bottom: 2px;
+    }
+  }
+  
+  @each $val in primary, success, warning, info, danger {
+    //  very flexible way to change the value of a CSS variable by hooking it up to some class
+    .al-button--#{$val} {
+      --al-button-text-color: var(--al-color-white);
+      --al-button-bg-color: var(--al-color-#{$val});
+      --al-button-border-color: var(--al-color-#{$val});
+      --al-button-outline-color: var(--al-color-#{$val}-light-5);
+      --al-button-active-color: var(--al-color-#{$val}-dark-2);
+      --al-button-hover-text-color: var(--al-color-white);
+      --al-button-hover-bg-color: var(--al-color-#{$val}-light-3);
+      --al-button-hover-border-color: var(--al-color-#{$val}-light-3);
+      --al-button-active-bg-color: var(--al-color-#{$val}-dark-2);
+      --al-button-active-border-color: var(--al-color-#{$val}-dark-2);
+      --al-button-disabled-text-color: var(--al-color-white);
+      --al-button-disabled-bg-color: var(--al-color-#{$val}-light-5);
+      --al-button-disabled-border-color: var(--al-color-#{$val}-light-5);
+    }
+    // If is-plain is hooked up, it also changes the value of some CSS variables
+    .al-button--#{$val}.is-plain {
+      --al-button-text-color: var(--al-color-#{$val});
+      --al-button-bg-color: var(--al-color-#{$val}-light-9);
+      --al-button-border-color: var(--al-color-#{$val}-light-5);
+      --al-button-hover-text-color: var(--al-color-white);
+      --al-button-hover-bg-color: var(--al-color-#{$val});
+      --al-button-hover-border-color: var(--al-color-#{$val});
+      --al-button-active-text-color: var(--al-color-white);
+    }
+  }
+  
+  // write the appropriate styles for al-button-large and al-button-small.
+  .al-button--large {
+    --al-button-size: 50px;
+    height: var(--al-button-size);
+    padding: 12px 19px;
+    font-size: var(--al-font-size-base);
+    border-radius: var(--al-border-radius-base);
+  }
+  .al-button--small {
+    --al-button-size: 24px;
+    height: var(--al-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--al-border-radius-base) - 1px);
+  }
+  

@@ -1,0 +1,75 @@
+//color generater
+$colors:(
+    primary:#409eff,
+    success:#67c23a,
+    warning:#e6a23c,
+    danger:#f56c6c,
+    info:#909399
+);
+:root {
+    // different lightness generated based on different colors
+    @each $val, $color in $colors{
+        --al-color-#{$val}:#{$color};
+        //lightness
+        @for $i from 1 through 4{
+            --al-color-#{$val}-light-#{2*$i+1}:#{mix(#fff,$color,((2*$i+1)*10*1%))};
+        }
+        //dark and light8
+        --al-color-#{$val}-light8:#{mix(#fff,$color,80*1%)};
+        --al-color-#{$val}-dark:#{mix(#000,$color,20*1%)};
+    }
+    //other color 
+    --al-color-white: #fff;
+    --al-color-black: #000;
+    --al-bg-color: #ffffff;
+    --al-bg-color-page: #f2f3f5;
+    --al-bg-color-overlay: #ffffff;
+    --al-text-color-primary: #303133;
+    --al-text-color-regular: #606266;
+    --al-text-color-secondary: #909399;
+    --al-text-color-placeholder: #a8abb2;
+    --al-text-color-disabled: #c0c4cc;
+    --al-border-color: #dcdfe6;
+    --al-border-color-light: #e4e7ed;
+    --al-border-color-lighter: #ebeef5;
+    --al-border-color-extra-light: #f2f6fc;
+    --al-border-color-dark: #d4d7de;
+    --al-border-color-darker: #cdd0d6;
+    --al-fill-color: #f0f2f5;
+    --al-fill-color-light: #f5f7fa;
+    --al-fill-color-lighter: #fafafa;
+    --al-fill-color-extra-light: #fafcff;
+    --al-fill-color-dark: #ebedf0;
+    --al-fill-color-darker: #e6e8eb;
+    --al-fill-color-blank: #ffffff;
+  
+    // 和 border 相关的变量
+    --al-border-width: 1px;
+    --al-border-style: solid;
+    --al-border-color-hover: var(--al-text-color-disabled);
+    --al-border: var(--al-border-width) var(--al-border-style) var(--al-border-color);
+    --al-border-radius-base: 4px;
+    --al-border-radius-small: 2px;
+    --al-border-radius-round: 20px;
+    --al-border-radius-circle: 100%;
+  
+    // 和 font 相关的变量
+    --al-font-size-extra-large: 20px;
+    --al-font-size-large: 18px;
+    --al-font-size-medium: 16px;
+    --al-font-size-base: 14px;
+    --al-font-size-small: 13px;
+    --al-font-size-extra-small: 12px;
+    --al-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+      'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+    --al-font-weight-primary: 500;
+  
+    // 和 disabled 相关的变量
+    --al-disabled-bg-color: var(--al-fill-color-light);
+    --al-disabled-text-color: var(--al-text-color-placeholder);
+    --al-disabled-border-color: var(--al-border-color-light);
+  
+    // 和 transition 过渡相关的变量
+    --al-transition-duration: 0.3s;
+    --al-transition-duration-fast: 0.2s;
+}
