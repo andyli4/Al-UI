@@ -1,5 +1,5 @@
 {
-  "name": "al-ui",
+  "name": "al-ui-vue3",
   "version": "1.0.0",
   "description": "Vue 3 components library",
   "type": "module",
@@ -19,9 +19,9 @@
       "import": "./dist/es/al-ui.js",
       "require": "./dist/umd/al-ui.umd.cjs"
     },
-    "./style.css":{
-      "import":"./dist/es/style.css",
-      "require":"./dist/umd/style.css"
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/umd/style.css"
     }
   },
   "scripts": {
@@ -29,7 +29,7 @@
     "build": "npm run build-es && npm run build-umd && npm run move-style",
     "build-es": "vite build --config vite.es.config.js",
     "build-umd": "vite build --config vite.umd.config.js",
-    "move-style":"move-file dist/es/style.css dist/style.css",
+    "move-style": "move-file dist/es/style.css dist/style.css",
     "preview": "vite preview",
     "test:unit": "vitest",
     "test": "vitest",
@@ -47,7 +47,7 @@
     "move-file-cli": "^3.0.0"
   },
   "peerDependencies": {
-    "vue": "^3.4.29"
+    "vue": "3.4.29"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
@@ -63,7 +63,7 @@
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0",
-    "vue": "^3.4.29",
+    "vue": "3.4.29",
     "vue-router": "^4.3.3"
   }
 }
